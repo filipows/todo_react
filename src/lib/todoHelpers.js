@@ -16,3 +16,9 @@ export const updateTodo = (list, updateTodo) => {
 }
 
 
+export const removeTodo = (list, id) => {
+  const index = list.findIndex((elem) => elem.id === id );
+  return [
+    ...list.slice(0, index), 
+    ...list.slice(index+1, list.length)]
+};
