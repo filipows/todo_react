@@ -22,3 +22,17 @@ export const removeTodo = (list, id) => {
     ...list.slice(0, index), 
     ...list.slice(index+1, list.length)]
 };
+
+export const filterTodos = (list, route) => {
+  switch(route) {
+    case '/complete': {
+      return list.filter( (item) => item.isComplete )
+    }
+    case '/active': {
+      return list.filter( (item) => !item.isComplete);
+    }
+    default: {
+      return list;
+    }
+  }
+}
